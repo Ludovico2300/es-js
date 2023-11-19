@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Book rows will be added dynamically here -->
+        <!-- i libri verranno inseriti dinamicamente qui -->
       </tbody>
     </table>
 
@@ -29,6 +29,7 @@
       queryParams.forEach((value, key) => {
         newBook[key] = value;
       });
+      // aggiungo il nuovo libro all'array
       books.push(newBook);
       console.log("hai inserito un libro", newBook);
 
@@ -36,17 +37,17 @@
         console.log(books);
         const tableBody = document.querySelector("#booksTable tbody");
 
-        // Clear existing rows
+        // resetto la tabella
         tableBody.innerHTML = "";
 
-        // Add new rows for each book
+        // popolo la tabella
         for (const book of books) {
           const row = tableBody.insertRow();
           row.insertCell(0).textContent = book.titolo;
           row.insertCell(1).textContent = book.genere;
           row.insertCell(2).textContent = book.autore;
 
-          // Add a click event listener to each row
+          // aggiungo un listener per visualizzare l'alert con Autore e Trama al click
           row.addEventListener("click", function () {
             alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
           });

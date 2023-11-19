@@ -7,7 +7,6 @@ export class Book {
   }
 }
 
-// Create an array of Book objects
 export const books = [
   new Book(
     "Il Signore degli Anelli",
@@ -17,20 +16,15 @@ export const books = [
   ),
   new Book(
     "1984",
-    "Dystopian",
-    "A totalitarian regime controls everything.",
+    "Distopico",
+    "Un regime totalitario controlla ogni cosa.",
     "George Orwell"
   ),
-  new Book(
-    "Orgoglio e Pregiudizio",
-    "Romance",
-    "Mr. Darcy and Elizabeth Bennet navigate societal expectations.",
-    "Jane Austen"
-  ),
+  new Book("Dico Tutto", "Biorafia", "Questa è una biografia", "A. Cassano"),
   new Book(
     "Cronache di Narnia",
     "Fantasy",
-    "Children discover a magical world through a wardrobe.",
+    "Un magico mondo dentro un 'comune' armadio.",
     "C.S. Lewis"
   ),
 ];
