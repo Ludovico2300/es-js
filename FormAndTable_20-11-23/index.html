@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="books/books.html" method="get">
+      <div class="field">
+        <label for="titolo">Titolo</label>
+        <input
+          type="text"
+          id="titolo"
+          name="titolo"
+          placeholder="Inserisci il titolo"
+          required
+        />
+      </div>
+      <div class="field">
+        <label for="genere">Genere</label>
+        <input
+          type="text"
+          id="genere"
+          name="genere"
+          placeholder="Inserisci il genere"
+          required
+        />
+      </div>
+      <div class="field">
+        <label for="trama">Trama</label>
+        <textarea
+          id="trama"
+          name="trama"
+          placeholder="Inserisci la trama"
+          required
+        ></textarea>
+      </div>
+      <div class="field">
+        <label for="autore">Autore</label>
+        <input
+          type="text"
+          id="autore"
+          name="autore"
+          placeholder="Inserisci l'autore"
+          required
+        />
+      </div>
+      <div class="actions">
+        <button type="submit">Invia dati</button>
+      </div>
+    </form>
+  </body>
+</html>

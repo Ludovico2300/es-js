@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <table id="booksTable">
+      <thead>
+        <tr>
+          <th>Titolo</th>
+          <th>Genere</th>
+          <th>Autore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Book rows will be added dynamically here -->
+      </tbody>
+    </table>
+
+    <script type="module">
+      import { Book, books } from "../data.js";
+      var queryParams = new URLSearchParams(location.search); // "?campo1=valore&campo2=calore"
+      // { campo1 : "valore"}
+      console.log(location.search, queryParams.toString());
+      let newBook = new Book();
+      queryParams.forEach((value, key) => {
+        newBook[key] = value;
+      });
+      books.push(newBook);
+      console.log("hai inserito un libro", newBook);
+
+      function displayBooks() {
+        console.log(books);
+        const tableBody = document.querySelector("#booksTable tbody");
+
+        // Clear existing rows
+        tableBody.innerHTML = "";
+
+        // Add new rows for each book
+        for (const book of books) {
+          const row = tableBody.insertRow();
+          row.insertCell(0).textContent = book.titolo;
+          row.insertCell(1).textContent = book.genere;
+          row.insertCell(2).textContent = book.autore;
+
+          // Add a click event listener to each row
+          row.addEventListener("click", function () {
+            alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
+          });
+        }
+      }
+      displayBooks();
+    </script>
+  </body>
+</html>
