@@ -13,6 +13,7 @@
           <th>Titolo</th>
           <th>Genere</th>
           <th>Autore</th>
+          <th>Azioni</th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +34,14 @@
       books.push(newBook);
       console.log("hai inserito un libro", newBook);
 
+      function deleteBook(bookTitle) {
+        const index = books.findIndex((book) => book.titolo === bookTitle);
+        if (index !== -1) {
+          books.splice(index, 1); // Rimuovi il libro dall'array
+          console.log("Libro eliminato:", books);
+        }
+      }
+
       function displayBooks() {
         console.log(books);
         const tableBody = document.querySelector("#booksTable tbody");
@@ -43,14 +52,25 @@
         // popolo la tabella
         for (const book of books) {
           const row = tableBody.insertRow();
-          row.insertCell(0).textContent = book.titolo;
+
+          // aggiungo un listener per visualizzare l'alert con Autore e Trama al click sul titolo
+          const rowTitleInfo = document.createElement("div");
+          rowTitleInfo.textContent = book.titolo;
+          rowTitleInfo.addEventListener("click", function () {
+            alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
+          });
+          row.insertCell(0).appendChild(rowTitleInfo);
           row.insertCell(1).textContent = book.genere;
           row.insertCell(2).textContent = book.autore;
 
-          // aggiungo un listener per visualizzare l'alert con Autore e Trama al click
-          row.addEventListener("click", function () {
-            alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
+          // Bottone di eliminazione
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Elimina";
+          deleteButton.addEventListener("click", function () {
+            deleteBook(book.titolo);
+            displayBooks(); // Aggiorna la visualizzazione dopo l'eliminazione
           });
+          row.insertCell(3).appendChild(deleteButton);
         }
       }
       displayBooks();
