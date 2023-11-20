@@ -31,6 +31,8 @@ function displayBooks() {
     // aggiungo un listener per visualizzare l'alert con Autore e Trama al click sul titolo
     const rowTitleInfo = document.createElement("div");
     rowTitleInfo.textContent = book.titolo;
+    rowTitleInfo.classList.add("btn");
+
     rowTitleInfo.addEventListener("click", function () {
       alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
     });
@@ -41,6 +43,7 @@ function displayBooks() {
     // Bottone di eliminazione
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Elimina";
+    deleteButton.classList.add("btn", "btn-danger"); // aggiungo le calssi Bootstrap
     deleteButton.addEventListener("click", function () {
       deleteBook(book.titolo);
       displayBooks(); // Aggiorna la visualizzazione dopo l'eliminazione
