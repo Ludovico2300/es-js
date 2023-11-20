@@ -20,7 +20,7 @@ export const books = [
     "Un regime totalitario controlla ogni cosa.",
     "George Orwell"
   ),
-  new Book("Dico Tutto", "Biorafia", "Questa è una biografia", "A. Cassano"),
+  new Book("Dico Tutto", "Biografia", "Questa è una biografia", "A. Cassano"),
   new Book(
     "Cronache di Narnia",
     "Fantasy",
