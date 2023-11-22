@@ -32,6 +32,7 @@ function displayBooks() {
     const rowTitleInfo = document.createElement("div");
     rowTitleInfo.textContent = book.titolo;
     rowTitleInfo.classList.add("btn");
+    // rowTitleInfo.classList.add("cursor-pointer"); // non funziona! (?)
 
     rowTitleInfo.addEventListener("click", function () {
       alert(`Autore: ${book.autore}\nTrama: ${book.trama}`);
