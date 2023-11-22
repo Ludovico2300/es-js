@@ -48,11 +48,30 @@ async function displayDataForces() {
           const details = await getDetails(data.id);
 
           const description = details.description
-            ? details.description.replace(/<\/?p[^>]*>/g, "") // Remove <p> and </p> tags
+            ? details.description.replace(/<\/?p[^>]*>/g, "") // Remove <p> and </p> tags with RegEx
             : "Not Available";
           const tel = details.telephone ? details.telephone : "Not Available";
 
-          alert(`ID: ${data.id}\nTel: ${tel}\nDescription: ${description}`);
+          swal("What do you want to show?", {
+            buttons: {
+              ID: "ID",
+              tel: "Telephone",
+              description: "Description",
+            },
+          }).then((value) => {
+            switch (value) {
+              case "ID":
+                swal("ID", data.id);
+                break;
+
+              case "tel":
+                swal("TELEPHONE", tel);
+                break;
+
+              case "description":
+                swal("DESCRIPTION", description);
+            }
+          });
         });
 
         // Button for the site
